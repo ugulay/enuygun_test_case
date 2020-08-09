@@ -3,6 +3,8 @@
 
 >MySQL 5.8
 
+>Non-Dockerized yet. Developed on Laragon
+
 ## .env
 >DATABASE_URL=mysql://root:123456@127.0.0.1:3306/enuygun_case?serverVersion=5.7
 
