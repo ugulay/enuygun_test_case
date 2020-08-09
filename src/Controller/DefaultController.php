@@ -17,6 +17,11 @@ class DefaultController extends AbstractController
             ->getRepository(Developer::class)
             ->findCalculatedDates($weekHours);
 
-        return $this->json($getDates, 200);
+        $data = [
+            "WeeklyHour" => $weekHours,
+            "Data" => $getDates
+        ];
+
+        return $this->json($data, 200);
     }
 }

@@ -24,12 +24,13 @@ class DeveloperRepository extends ServiceEntityRepository
 
         $rawQuery   =  "SELECT 
                             D.title AS dev,
+                            D.level AS level,
                             (SELECT SUM(duration) FROM task WHERE level=D.level ) AS total_task_duration,
                             (SELECT SUM(duration) FROM task WHERE level=D.level ) / {$weekHours} AS total_week,
                             (SELECT SUM(duration) FROM task WHERE level=D.level ) / {$weekHours} * 7 AS total_week_days
                         FROM task AS T
                         LEFT JOIN developer AS D ON(T.level=D.level)
-                        GROUP BY D.title,total_task_duration,total_week,total_week_days";
+                        GROUP BY D.title,D.level,total_task_duration,total_week,total_week_days";
 
         $conn = $this->getEntityManager()->getConnection();
         $stmt = $conn->prepare($rawQuery);
