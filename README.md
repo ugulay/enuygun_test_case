@@ -18,3 +18,6 @@
 
 ## Command for collect provider data
 >php bin\console app:collect-tasks
+
+## Screenshot
+![Screenshot](https://raw.githubusercontent.com/ugulay/enuygun_test_case/master/screenshot.jpg)
